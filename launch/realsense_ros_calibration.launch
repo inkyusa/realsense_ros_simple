@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<launch>
+
+  <node pkg="realsense_ros" type="zr300node" name="realsense_zr300">
+
+    <param name="depth/width" value="640"/>
+    <param name="depth/height" value="480"/>
+    <param name="depth/fps" value="30"/>
+    <param name="depth/enabled" value="true"/>
+    <param name="depth/median_filter_enabled" value="true"/>
+    <param name="depth/min_max_filter_enabled" value="true"/>
+    <param name="depth/min_max_filter_size" value="5"/>
+    <param name="depth/min_max_filter_threshold" value="0.3"/>
+
+    <param name="infrared/enabled" value="false"/>
+
+    <param name="color/width" value="640"/>
+    <param name="color/height" value="480"/>
+    <param name="color/fps" value="30"/>
+    <param name="color/enabled" value="false"/>
+
+    <param name="fisheye/width" value="640"/>
+    <param name="fisheye/height" value="480"/>
+    <param name="fisheye/fps" value="30"/>
+    <param name="fisheye/enabled" value="true"/>
+
+    <param name="fisheye/enable_auto_exposure" value="false"/>
+    <param name="fisheye/exposure_ms" value="40.0"/>
+    <param name="fisheye/gain" value="0.0"/>
+
+    <param name="imu/publish_sensors_inidividually" value="true"/>
+
+    <param name="pointcloud/enabled" value="true"/>
+    
+    <param name="pointcloud/color_filter_enabled" value="true"/>
+    <param name="pointcloud/min_h" value="0"/>
+    <param name="pointcloud/min_s" value="0"/>
+    <param name="pointcloud/min_v" value="80"/>
+    <param name="pointcloud/max_h" value="90"/>
+    <param name="pointcloud/max_s" value="150"/>
+    <param name="pointcloud/max_v" value="255"/>
+  </node>
+
+</launch>

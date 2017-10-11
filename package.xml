@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>realsense_ros_simple</name>
+  <version>0.0.1</version>
+  <description>
+     A simplified driver for realsense ZR300 camera, using librealsense and only publishing synchronized fisheye images and IMU measurement.
+  </description>
+  <url></url>
+  <author>Inkyu Sa</author>
+  <maintainer email="inkyu.sa@mavt.ethz.ch">Inkyu Sa</maintainer>
+  <license>GPL</license>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+
+  <!-- Dependencies needed after this package is compiled. -->  
+  <depend>roscpp</depend>
+  <depend>image_transport</depend>
+  <depend>cmake_modules</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>pcl_ros</depend>
+  <depend>cv_bridge</depend>
+  <depend>librealsense</depend>
+  <depend>ze_imu</depend>
+
+</package>

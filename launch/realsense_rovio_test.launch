@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<?ignore
+<launch>
+  <node pkg="realsense_ros" type="zr300node" name="realsense_zr300">
+	<param name="imu/intrinsics_yaml" value="$(find dji_sdk)/resources/sensors/intel2/realsense.yaml"/>
+	<param name="imu/publish_sensors_inidividually" value="false"/>
+
+	<param name="depth/width" value="640"/>
+	<param name="depth/height" value="480"/>
+	<param name="depth/fps" value="30"/>
+	<param name="depth/enabled" value="true"/>
+	<param name="depth/subsample_factor" value="3"/>
+
+	<param name="infrared/enabled" value="false"/>
+
+	<param name="color/width" value="640"/>
+	<param name="color/height" value="480"/>
+	<param name="color/fps" value="30"/>
+	<param name="color/enabled" value="false"/>
+	<param name="color/subsample_factor" value="3"/>
+
+	<param name="fisheye/width" value="640"/>
+	<param name="fisheye/height" value="480"/>
+	<param name="fisheye/fps" value="30"/>
+	<param name="fisheye/enabled" value="true"/>
+	<param name="fisheye/subsample_factor" value="2"/>
+
+	<param name="pointcloud/enabled" value="false"/>
+  </node>
+
+  <node name="rovio" pkg="rovio" type="rovio_node" output="screen">
+	<param name="filter_config" value="$(find dji_sdk)/resources/sensors/intel2/rovio_filter.info" />
+	<param name="camera0_config" value="$(find dji_sdk)/resources/sensors/intel2/rovio_cam.yaml" />
+	<remap from="cam0/image_raw" to="fisheye/fisheye"/>
+	<remap from="imu0" to="imu/compensated"/>
+	<param name="world_frame" value="odom"/>
+	<param name="capability_group" value="Rovio" />
+  </node>
+</launch>
+?>
+
+<launch>
+  <node pkg="realsense_ros" type="zr300node" name="realsense_zr300">
+	<param name="imu/intrinsics_yaml" value="$(find dji_sdk)/resources/sensors/intel2/realsense.yaml"/>
+	<param name="imu/publish_sensors_inidividually" value="false"/>
+
+	<param name="depth/width" value="640"/>
+	<param name="depth/height" value="480"/>
+	<param name="depth/fps" value="30"/>
+	<param name="depth/enabled" value="false"/>
+	<param name="depth/subsample_factor" value="3"/>
+
+	<param name="infrared/enabled" value="false"/>
+
+	<param name="color/width" value="640"/>
+	<param name="color/height" value="480"/>
+	<param name="color/fps" value="30"/>
+	<param name="color/enabled" value="false"/>
+	<param name="color/subsample_factor" value="3"/>
+
+	<param name="fisheye/width" value="640"/>
+	<param name="fisheye/height" value="480"/>
+	<param name="fisheye/fps" value="30"/>
+	<param name="fisheye/enabled" value="true"/>
+	<param name="fisheye/subsample_factor" value="1"/>
+
+	<param name="pointcloud/enabled" value="false"/>
+  </node>
+
+  <node name="rovio" pkg="rovio" type="rovio_node" output="screen">
+	<param name="filter_config" value="$(find dji_sdk)/resources/sensors/intel2/rovio_filter.info" />
+	<param name="camera0_config" value="$(find dji_sdk)/resources/sensors/intel2/rovio_cam.yaml" />
+	<remap from="cam0/image_raw" to="fisheye/fisheye"/>
+	<remap from="imu0" to="imu/compensated"/>
+	<param name="world_frame" value="odom"/>
+	<param name="capability_group" value="Rovio" />
+  </node>
+</launch>
+
+
